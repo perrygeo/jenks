@@ -13,9 +13,9 @@ There are even a few python implementations:
 
 However, it has been noted that the python implementations are tediously *slow*. There are two obvious reasons for this...
 
-1. All the data is stored in python lists rather than optimized numpy arrays. The fact that their variables are named `matrices` is perhaps some sort of practical joke...
+1. All the data is stored in python lists rather than optimized data structures. The fact that the variables are named "matrices" is perhaps some sort of practical joke given how bad lists are for matrix/array like data structures. **Numpy** arrays are your friend and I can't imagine doing any numeric computation in python without them. 
 
-2. There is a lot of looping. Like exponential-time looping. The algorithm makes this somewhat inevitable. Python sucks at iterating over simple math, exploding the runtime very quickly. `Cython`, through it's variable typing, allows us to write python modules in python-like syntax and compile it to a shared library that can be imported as a python module and run the loops at near-C speed. 
+2. There is a lot of looping. Like exponential-time looping. The algorithm makes this somewhat inevitable. Python sucks at iterating over simple math, exploding the runtime very quickly. **Cython**, through it's variable typing, allows us to *write* the algorithm in python-like syntax, *compile* it to a shared library that can be imported as a python module and run at near-C speeds. 
 
 Here's the benchmark against the jenks2.py implementation:
 
