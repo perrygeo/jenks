@@ -17,6 +17,8 @@ However, it has been noted that the python implementations are tediously *slow*.
 
 2. There is a lot of looping. Like exponential-time looping. The algorithm makes this somewhat inevitable. Python sucks at iterating over simple math, exploding the runtime very quickly. **Cython**, through it's variable typing, allows us to *write* the algorithm in python-like syntax, *compile* it to a shared library that can be imported as a python module and run at near-C speeds. 
 
+So I set forth to make good use of my son's afternoon nap time and port the existing [python implementation](https://gist.github.com/llimllib/4974446) (which is, in turn based on the [wonderfully documented javascript implementation](http://www.macwright.org/simple-statistics/docs/simple_statistics.html#section-114)) to cython with numpy arrays. 
+
 Here's the benchmark against the jenks2.py implementation:
 
 ```
