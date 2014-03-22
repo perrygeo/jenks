@@ -38,15 +38,18 @@ The only cost is that you need Cython and a C compiler to get it working.
 ```
 sudo apt-get install cython build-essential
 pip install -e "git+https://github.com/perrygeo/jenks.git#egg=jenks"
-
 ```
 
 And then test it
 ```
-import json
-from jenks import jenks
+In [1]: import json
 
-# data should be 1-dimensional array, python list or iterable 
-data = json.load(open('test.json')) 
-print jenks(data, 5)
+In [2]: from jenks import jenks
+
+In [3]: # data should be 1-dimensional array, python list or iterable 
+
+In [4]: data = json.load(open('test.json')) 
+
+In [5]: print jenks(data, 5)
+[0.002810962, 2.0935481, 4.2054954, 6.1781483, 8.0917587, 9.997983]
 ```
