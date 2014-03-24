@@ -26,6 +26,7 @@ setup(
     license="BSD",
     keywords="gis geospatial geographic statistics numpy cython choropleth",
     url="https://github.com/perrygeo/jenks",
+    install_requires=['Numpy'],
     cmdclass={'build_ext': build_ext},
     ext_modules = [
         Extension("jenks", ["jenks.pyx"], include_dirs=include_dirs)]

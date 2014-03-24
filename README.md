@@ -38,7 +38,7 @@ Yep that's *118X faster* for just a little bit of static typing and using arrays
 The only cost is that you need Cython and a C compiler to get it working. 
 
 ```
-sudo apt-get install cython build-essential
+sudo apt-get install build-essential cython python-numpy
 pip install -e "git+https://github.com/perrygeo/jenks.git#egg=jenks"
 ```
 
