@@ -1,6 +1,22 @@
-from distutils.core import setup
-from distutils.extension import Extension
+import logging
+
 from Cython.Distutils import build_ext
+from setuptools import setup
+from distutils.extension import Extension
+
+logging.basicConfig()
+log = logging.getLogger()
+
+include_dirs = []
+
+try:
+    import numpy
+    include_dirs.append(numpy.get_include())
+except ImportError:
+    log.critical(
+        "Numpy and its headers are required to run setup(). Exiting.")
+    sys.exit(1)
+
 setup(
     name="jenks",
     version="1.0",
@@ -11,5 +27,6 @@ setup(
     keywords="gis geospatial geographic statistics numpy cython choropleth",
     url="https://github.com/perrygeo/jenks",
     cmdclass={'build_ext': build_ext},
-    ext_modules = [Extension("jenks", ["jenks.pyx"])]
+    ext_modules = [
+        Extension("jenks", ["jenks.pyx"], include_dirs=include_dirs)]
 )
