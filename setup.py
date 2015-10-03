@@ -1,4 +1,5 @@
 import logging
+import sys
 
 from Cython.Distutils import build_ext
 from setuptools import setup
