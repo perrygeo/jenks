@@ -1,7 +1,15 @@
 import logging
 import sys
 
-from Cython.Distutils import build_ext
+try:
+    import Cython
+except ImportError:
+    log.critical(
+        "Cython is required to run setup(). Exiting.")
+    sys.exit(1)
+else:
+    from Cython.Distutils import build_ext
+
 from setuptools import setup
 from distutils.extension import Extension
 
