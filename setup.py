@@ -1,6 +1,9 @@
 import logging
 import sys
 
+logging.basicConfig()
+log = logging.getLogger()
+
 try:
     import Cython
 except ImportError:
@@ -12,9 +15,6 @@ else:
 
 from setuptools import setup
 from distutils.extension import Extension
-
-logging.basicConfig()
-log = logging.getLogger()
 
 include_dirs = []
 
