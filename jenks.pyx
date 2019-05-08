@@ -26,7 +26,7 @@ cdef jenks_matrices_init(np.ndarray[DTYPE_t, ndim=1] data, Py_ssize_t n_classes)
     variance_combinations[2:n_data+1, 1:n_classes+1] = inf
 
     return lower_class_limits, variance_combinations
-   
+
 @cython.boundscheck(False) # turn of bounds-checking for entire function
 @cython.wraparound(False)
 @cython.nonecheck(False)
@@ -50,7 +50,7 @@ cdef jenks_matrices(np.ndarray[DTYPE_t, ndim=1] data, Py_ssize_t n_classes):
         sum = 0.0
         sum_squares = 0.0
         w = 0.0
-   
+
         for m in range(1, l+1):
             # `III` originally
             lower_class_limit = l - m + 1
@@ -94,7 +94,7 @@ def jenks(data, n_classes):
 
     lower_class_limits, _ = jenks_matrices(data, n_classes)
 
-    k = data.shape[0] - 1
+    k = data.shape[0]
     kclass = [0.] * (n_classes+1)
     countNum = n_classes
 
@@ -108,4 +108,3 @@ def jenks(data, n_classes):
         countNum -= 1
 
     return kclass
-
