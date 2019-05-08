@@ -4,9 +4,10 @@ from jenks import jenks
 def test_json():
     data = json.load(open('test.json'))
     breaks = jenks(data, 5)
-    assert [round(v, 6) for v in breaks] == [0.002811,
-                                             2.093548,
-                                             4.205495,
-                                             6.178148,
-                                             8.091759,
-                                             9.997983]
+    assert [round(float(v), 5) for v in breaks] == \
+        [0.00281, 2.09355, 4.2055, 6.17815, 8.09176, 9.99798]
+
+def test_short():
+    data = [1, 2, 3, 100]
+    breaks = jenks(data, 2)
+    assert [round(v, 5) for v in breaks] == [1.0, 3.0, 100.0]
